@@ -1,7 +1,7 @@
 package cn.itgrocery.pocketc.controller;
 
 import cn.itgrocery.pocketc.dao.UserDao;
-import cn.itgrocery.pocketc.entity.User;
+import cn.itgrocery.pocketc.entity.UserEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,7 +19,7 @@ public class UserController {
     private UserDao userDao;
 
     @RequestMapping("/")
-    public User test() {
+    public UserEntity test() {
         return userDao.selectByUsername("admin");
     }
 }

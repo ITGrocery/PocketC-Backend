@@ -1,6 +1,6 @@
 package cn.itgrocery.pocketc.dao;
 
-import cn.itgrocery.pocketc.entity.User;
+import cn.itgrocery.pocketc.entity.UserEntity;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -11,5 +11,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserDao {
 
-    User selectByUsername(String username);
+    UserEntity selectByUsername(String username);
 }

@@ -7,7 +7,7 @@ import java.util.Date;
  * @Date 2017/7/31 9:50
  * @Describle
  */
-public class User {
+public class UserEntity {
 
     private long id;
     private String username;
@@ -16,10 +16,10 @@ public class User {
     private String mobilePhoneNumber;
     private String emailAddress;
 
-    public User() {
+    public UserEntity() {
     }
 
-    public User(long id) {
+    public UserEntity(long id) {
         this.id = id;
     }
 
