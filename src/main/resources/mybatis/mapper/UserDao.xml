@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.itgrocery.pocketc.dao.UserDao">
+
+    <resultMap id="UserBaseMap" type="cn.itgrocery.pocketc.entity.User">
+        <result column="id" property="id" jdbcType="BIGINT"/>
+        <result column="username" property="username" jdbcType="VARCHAR"/>
+        <result column="userpwd" property="password" jdbcType="VARCHAR"/>
+        <result column="register_time" property="registerTime" jdbcType="TIMESTAMP"/>
+        <result column="mobile_phone_number" property="mobilePhoneNumber" jdbcType="VARCHAR"/>
+        <result column="email_address" property="emailAddress" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="selectByUsername" resultMap="UserBaseMap" resultType="cn.itgrocery.pocketc.entity.User">
+        select * from t_users limit 1;
+    </select>
+
+</mapper>

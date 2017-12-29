@@ -1,7 +1,11 @@
 package cn.itgrocery.pocketc.controller;
 
+import cn.itgrocery.pocketc.dao.UserDao;
+import cn.itgrocery.pocketc.entity.User;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
 
 /**
  * @ author chenxl
@@ -9,10 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
  * @ describe
  */
 @RestController
-public class SampleController {
+public class UserController {
+
+    @Resource
+    private UserDao userDao;
 
     @RequestMapping("/")
-    public String test() throws Exception {
-        throw new Exception("抛出异常");
+    public User test() {
+        return userDao.selectByUsername("admin");
     }
 }
