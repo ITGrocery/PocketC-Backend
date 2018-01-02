@@ -14,6 +14,6 @@ public class RestfulExceptionHandler {
     @ExceptionHandler(Exception.class)
     public String handleException(Exception exception){
 
-        return "测试喔";
+        return "有异常喔！";
     }
 }

@@ -1,7 +1,9 @@
 package cn.itgrocery.pocketc.controller;
 
+import cn.itgrocery.pocketc.base.BaseController;
+import cn.itgrocery.pocketc.base.BaseResponse;
 import cn.itgrocery.pocketc.dao.UserDao;
-import cn.itgrocery.pocketc.entity.UserEntity;
+import cn.itgrocery.pocketc.entity.VerifyCoderEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,13 +15,20 @@ import javax.annotation.Resource;
  * @ describe
  */
 @RestController
-public class UserController {
+@RequestMapping("/user")
+public class UserController implements BaseController{
 
     @Resource
     private UserDao userDao;
 
-    @RequestMapping("/")
-    public UserEntity test() {
-        return userDao.selectByUsername("admin");
+    @RequestMapping("/test")
+    public BaseResponse test() {
+        return getResponse(userDao.selectByUsername("admin"));
+    }
+
+    @RequestMapping("/getVerifyCode")
+    public VerifyCoderEntity getVerifyCode(){
+
+        return null;
     }
 }

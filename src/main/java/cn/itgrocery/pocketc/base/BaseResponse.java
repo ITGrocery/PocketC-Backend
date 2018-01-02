@@ -7,6 +7,13 @@ package cn.itgrocery.pocketc.base;
  */
 public class BaseResponse<T> {
 
+    //操作成功
+    public static final int BASERESPONSE_CODE_SUCCESS = 200;
+    //服务器异常
+    public static final int BASERESPONSE_CODE_EXCEPTION = 300;
+    //用户操作错误
+    public static final int BASERESPONSE_CODE_ERROR = 400;
+
     private T data;
     private int code;
     private String msg;
