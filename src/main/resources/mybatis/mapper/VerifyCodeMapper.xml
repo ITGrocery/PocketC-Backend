@@ -22,7 +22,7 @@
     </insert>
 
     <select id="countRequestNumOfVerifyCode" resultType="java.lang.Integer">
-        select count(*) from phone_verify_coder where phone_number = #{phoneNum} and to_days(crt_time) > to_days(now())
+        select count(*) from phone_verify_coder where phone_number = #{phoneNum} and to_days(crt_time) = to_days(now())
     </select>
 
 </mapper>
