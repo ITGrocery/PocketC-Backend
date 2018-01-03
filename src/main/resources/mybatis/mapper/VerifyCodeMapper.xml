@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.itgrocery.pocketc.dao.VerifyCodeDao">
+
+    <resultMap id="UserBaseMap" type="cn.itgrocery.pocketc.entity.VerifyCoderEntity">
+        <result column="id" property="id" jdbcType="BIGINT"/>
+        <result column="phone_number" property="phone_number" jdbcType="BIGINT"/>
+        <result column="verification_code" property="verification_code" jdbcType="INTEGER"/>
+        <result column="request_ip" property="request_ip" jdbcType="VARCHAR"/>
+        <result column="crt_time" property="crt_time" jdbcType="TIMESTAMP"/>
+        <result column="use_time" property="use_time" jdbcType="TIMESTAMP"/>
+        <result column="is_used" property="is_used" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <insert id="insert">
+        insert into phone_verify_coder(phone_number, verification_code, request_ip) values
+        (#{phone_number}, #{verification_code}, #{request_ip})
+    </insert>
+
+    <insert id="update">
+        update phone_verify_coder set use_time = #{use_time}, is_used = #{is_used} where id = #{id}
+    </insert>
+
+    <select id="countRequestNumOfVerifyCode" resultType="java.lang.Integer">
+        select count(*) from phone_verify_coder where phone_number = #{phoneNum} and to_days(crt_time) > to_days(now())
+    </select>
+
+</mapper>

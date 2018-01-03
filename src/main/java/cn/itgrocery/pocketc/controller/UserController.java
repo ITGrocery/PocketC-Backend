@@ -3,11 +3,13 @@ package cn.itgrocery.pocketc.controller;
 import cn.itgrocery.pocketc.base.BaseController;
 import cn.itgrocery.pocketc.base.BaseResponse;
 import cn.itgrocery.pocketc.dao.UserDao;
-import cn.itgrocery.pocketc.entity.VerifyCoderEntity;
+import cn.itgrocery.pocketc.service.UserService;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @ author chenxl
@@ -20,6 +22,8 @@ public class UserController implements BaseController{
 
     @Resource
     private UserDao userDao;
+    @Resource
+    private UserService userService;
 
     @RequestMapping("/test")
     public BaseResponse test() {
@@ -27,8 +31,7 @@ public class UserController implements BaseController{
     }
 
     @RequestMapping("/getVerifyCode")
-    public VerifyCoderEntity getVerifyCode(){
-
-        return null;
+    public BaseResponse getVerifyCode(HttpServletRequest request, @RequestParam("phoneNum") long phoneNum){
+        return getResponse(userService.getVerifyCodeByPhone(request,phoneNum));
     }
 }

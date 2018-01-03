@@ -8,14 +8,14 @@ package cn.itgrocery.pocketc.base;
 public class BaseResponse<T> {
 
     //操作成功
-    public static final int BASERESPONSE_CODE_SUCCESS = 200;
+    public static final String BASERESPONSE_CODE_SUCCESS = "SUCCESS";
     //服务器异常
-    public static final int BASERESPONSE_CODE_EXCEPTION = 300;
+    public static final String BASERESPONSE_CODE_EXCEPTION = "EXCEPTION";
     //用户操作错误
-    public static final int BASERESPONSE_CODE_ERROR = 400;
+    public static final String BASERESPONSE_CODE_ERROR = "ERROR";
 
     private T data;
-    private int code;
+    private String code;
     private String msg;
 
     public T getData() {
@@ -26,11 +26,11 @@ public class BaseResponse<T> {
         this.data = data;
     }
 
-    public int getCode() {
+    public String getCode() {
         return code;
     }
 
-    public void setCode(int code) {
+    public void setCode(String code) {
         this.code = code;
     }
 
