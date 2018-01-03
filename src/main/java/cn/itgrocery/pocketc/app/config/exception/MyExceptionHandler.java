@@ -1,6 +1,5 @@
-package cn.itgrocery.pocketc.controller;
+package cn.itgrocery.pocketc.app.config.exception;
 
-import cn.itgrocery.pocketc.app.config.exception.MyException;
 import cn.itgrocery.pocketc.base.BaseResponse;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
