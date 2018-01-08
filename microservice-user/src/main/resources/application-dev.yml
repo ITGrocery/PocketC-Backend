@@ -1,0 +1,22 @@
+app:
+  environment: dev
+
+mybatis:
+  mapper-locations: classpath:mybatis/mapper/*.xml
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.236.1:3306/pocketc?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: root
+  application:
+    name: microservice-user
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
